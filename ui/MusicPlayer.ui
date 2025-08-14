@@ -607,13 +607,13 @@ border-raduis: 20px;</string>
        <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="globalListButton">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>6</x>
         <y>50</y>
-        <width>101</width>
-        <height>23</height>
+        <width>211</width>
+        <height>20</height>
        </rect>
       </property>
       <property name="font">
@@ -625,12 +625,14 @@ border-raduis: 20px;</string>
       <property name="styleSheet">
        <string notr="true">QPushButton
 {
+	color: rgba(200, 200, 200, 240);
 	border-style: insert;
 	background-color: rgba(35, 45, 70, 0);
 }
 
 QPushButton:hover:!pressed
 {
+	color: rgba(255, 255, 255, 200);
 	border: insert lightgray;
   	background-color: rgba(140, 140, 140, 70);
 }
@@ -638,6 +640,41 @@ QPushButton:hover:!pressed
       </property>
       <property name="text">
        <string>Global</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addPlayListButton">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>72</y>
+        <width>211</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string>add +</string>
       </property>
      </widget>
     </widget>
@@ -661,6 +698,504 @@ border-radius: 10px;</string>
     <property name="frameShadow">
      <enum>QFrame::Shadow::Raised</enum>
     </property>
+    <widget class="QFrame" name="songAPICFrame">
+     <property name="geometry">
+      <rect>
+       <x>22</x>
+       <y>12</y>
+       <width>320</width>
+       <height>300</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 15px;
+border-size: 3px;
+border-style: solid;
+border-color: rgb(50, 58, 69);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+    </widget>
+    <widget class="QFrame" name="controllerFrame">
+     <property name="geometry">
+      <rect>
+       <x>69</x>
+       <y>429</y>
+       <width>242</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 20px;
+background-color: rgb(50, 58, 69);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="shuffleButton">
+      <property name="geometry">
+       <rect>
+        <x>14</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-radius: 10px;
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/play-random.png</normaloff>:/icons/icons/play-random.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previousButton">
+      <property name="geometry">
+       <rect>
+        <x>53</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-radius: 10px;
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/pre.png</normaloff>:/icons/icons/pre.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pauseButton">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-radius: 10px;
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/play.png</normaloff>:/icons/icons/play.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="playButton">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-radius: 10px;
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/pase.png</normaloff>:/icons/icons/pase.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="nextButton">
+      <property name="geometry">
+       <rect>
+        <x>156</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-radius: 10px;
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/next.png</normaloff>:/icons/icons/next.png</iconset>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="loopButton">
+      <property name="geometry">
+       <rect>
+        <x>199</x>
+        <y>10</y>
+        <width>30</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-radius: 10px;
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset resource="resources.qrc">
+        <normaloff>:/icons/icons/loop-one.png</normaloff>:/icons/icons/loop-one.png</iconset>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="timeLineFrmae">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>370</y>
+       <width>391</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 20px;
+background-color: rgb(50, 58, 69);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QSlider" name="songTimeLine">
+      <property name="geometry">
+       <rect>
+        <x>49</x>
+        <y>13</y>
+        <width>287</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="currentTimeLine">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>11</y>
+        <width>36</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>00:00</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="songLength">
+      <property name="geometry">
+       <rect>
+        <x>345</x>
+        <y>12</y>
+        <width>36</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>00:00</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QFrame" name="volumeFrame">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>10</y>
+       <width>40</width>
+       <height>280</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 20px;
+background-color: rgb(50, 58, 69);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Shape::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Shadow::Raised</enum>
+     </property>
+     <widget class="QSlider" name="verticalSlider">
+      <property name="geometry">
+       <rect>
+        <x>11</x>
+        <y>22</y>
+        <width>17</width>
+        <height>240</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Vertical</enum>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="addToFavoriteButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>318</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+QPushButton:hover:!pressed
+{
+	border: insert lightgray;
+  	background-color: rgba(100, 10, 10, 255);
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/icons/icons/heart-flat-icon.png</normaloff>:/icons/icons/heart-flat-icon.png</iconset>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="addToPlayList">
+     <property name="geometry">
+      <rect>
+       <x>315</x>
+       <y>317</y>
+       <width>30</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>30</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 100);
+}
+</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="icon">
+      <iconset resource="resources.qrc">
+       <normaloff>:/icons/icons/add-round-grey-icon.png</normaloff>:/icons/icons/add-round-grey-icon.png</iconset>
+     </property>
+    </widget>
    </widget>
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
@@ -678,7 +1213,109 @@ border-radius: 10px;</string>
     <property name="currentIndex">
      <number>0</number>
     </property>
-    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="currentPlayList">
+     <widget class="QFrame" name="page_1_Title">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>311</width>
+        <height>70</height>
+       </rect>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <widget class="QLabel" name="currentPlayListName">
+       <property name="geometry">
+        <rect>
+         <x>-1</x>
+         <y>0</y>
+         <width>311</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255,255, 255, 0);</string>
+       </property>
+       <property name="text">
+        <string>Current playlist</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+      <widget class="QLabel" name="currentPlayListSongNameAndPath">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>310</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgba(255,255, 255, 0);</string>
+       </property>
+       <property name="text">
+        <string>name                |               path</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="songInfo">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>80</y>
+        <width>310</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton
+{
+	color: rgba(200, 200, 200, 240);
+	border-style: insert;
+	background-color: rgba(35, 45, 70, 0);
+}
+
+QPushButton:hover:!pressed
+{
+	color: rgba(255, 255, 255, 200);
+	border: insert lightgray;
+  	background-color: rgba(140, 140, 140, 70);
+}
+</string>
+      </property>
+      <property name="text">
+       <string>song name                          path</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
   </widget>
