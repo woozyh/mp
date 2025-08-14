@@ -1,28 +1,37 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/python3.12.3
 
-################################################################################
-## Form generated from reading UI file 'MusicPlayer.ui'
-##
-## Created by: Qt User Interface Compiler version 6.9.0
-##
-## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
 
-from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
-    QMetaObject, QObject, QPoint, QRect,
-    QSize, QTime, QUrl, Qt)
-from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
-    QCursor, QFont, QFontDatabase, QGradient,
-    QIcon, QImage, QKeySequence, QLinearGradient,
-    QPainter, QPalette, QPixmap, QRadialGradient,
-    QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QListWidget,
-    QListWidgetItem, QMainWindow, QPushButton, QSizePolicy,
-    QSlider, QWidget)
-import resources_rc
-import resources_rc
+import resources
+from PySide6.QtCore import (
+    Qt,
+    QRect,
+    QSize,
+    QPoint,
+    QObject,
+    QMetaObject,
+    QCoreApplication,
+)
+from PySide6.QtGui import (
+    QIcon,
+    QFont, 
+    QAction,
+    QCursor,
+    QPixmap,
+    QTransform,
+)
+from PySide6.QtWidgets import (
+    QFrame,
+    QLabel,
+    QWidget,
+    QSlider,
+    QListWidget,
+    QMainWindow,
+    QApplication,
+    QPushButton,
+)
 
-class Ui_MusicPlayer(object):
+
+class MusicPlayerUi(object):
     def setupUi(self, MusicPlayer):
         if not MusicPlayer.objectName():
             MusicPlayer.setObjectName(u"MusicPlayer")
@@ -264,7 +273,7 @@ class Ui_MusicPlayer(object):
         self.playListFrame.setObjectName(u"playListFrame")
         self.playListFrame.setGeometry(QRect(10, 261, 221, 231))
         self.playListFrame.setStyleSheet(u"background-color: rgb(50, 58, 69);\n"
-"border-raduis: 20px;")
+"border-radius: 20px;")
         self.playListFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.playListFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.playListIcon = QLabel(self.playListFrame)
@@ -330,7 +339,6 @@ class Ui_MusicPlayer(object):
         self.songAPICFrame.setObjectName(u"songAPICFrame")
         self.songAPICFrame.setGeometry(QRect(22, 12, 320, 300))
         self.songAPICFrame.setStyleSheet(u"border-radius: 15px;\n"
-"border-size: 3px;\n"
 "border-style: solid;\n"
 "border-color: rgb(50, 58, 69);")
         self.songAPICFrame.setFrameShape(QFrame.Shape.StyledPanel)
@@ -609,14 +617,14 @@ class Ui_MusicPlayer(object):
         self.currentPlayList.setObjectName(u"currentPlayList")
         self.currentPlayList.setGeometry(QRect(5, 3, 310, 500))
         self.currentPlayList.setStyleSheet(u"background-color: rgb(50, 58, 69);\n"
-"border-raduis: 20px;")
+"border-radius: 20px;")
         self.currentPlayList.setFrameShape(QFrame.Shape.StyledPanel)
         self.currentPlayList.setFrameShadow(QFrame.Shadow.Raised)
         self.currentPlayListNameFrame = QFrame(self.currentPlayList)
         self.currentPlayListNameFrame.setObjectName(u"currentPlayListNameFrame")
         self.currentPlayListNameFrame.setGeometry(QRect(10, 0, 290, 50))
         self.currentPlayListNameFrame.setStyleSheet(u"background-color: rgba(100, 100, 100, 50);\n"
-"border-raduis: 20px;")
+"border-radius: 20px;")
         self.currentPlayListNameFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.currentPlayListNameFrame.setFrameShadow(QFrame.Shadow.Raised)
         self.addToFavoriteButton_4 = QPushButton(self.currentPlayListNameFrame)
@@ -678,7 +686,7 @@ class Ui_MusicPlayer(object):
         self.currentPlayListSongs.setGeometry(QRect(10, 60, 290, 31))
         self.currentPlayListSongs.setFont(font)
         self.currentPlayListSongs.setStyleSheet(u"color: white;\n"
-"border-raduis: 20px;\n"
+"border-radius: 20px;\n"
 "background-color: rgba(100, 100, 100, 50);\n"
 "")
         self.currentPlayListSongs.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -775,5 +783,4 @@ class Ui_MusicPlayer(object):
         self.currentPlayListNameLabel.setText(QCoreApplication.translate("MusicPlayer", u"Song List", None))
         self.playListIcon_2.setText("")
         self.currentPlayListSongs.setText(QCoreApplication.translate("MusicPlayer", u"name              |               path", None))
-    # retranslateUi
-
+    
