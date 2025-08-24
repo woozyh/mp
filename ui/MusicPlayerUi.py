@@ -1,7 +1,7 @@
 #!/usr/bin/python3.12.3
 
 
-import resources
+from . import resources
 from PySide6.QtCore import (
     Qt,
     QRect,
@@ -297,15 +297,17 @@ class MusicPlayerUi(object):
         self.globalListButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.globalListButton.setStyleSheet(u"QPushButton\n"
 "{\n"
-"	color: rgba(200, 200, 200, 240);\n"
-"	border-style: insert;\n"
-"	background-color: rgba(35, 45, 70, 0);\n"
+"	color: rgba(200, 200, 200, 240);	\n"
+"    border-style: insert;\n"
+"	border-radius: 10px;\n"
+"    background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
+"	border-radius: 10px;\n"
 "  	background-color: rgba(140, 140, 140, 70);\n"
 "}\n"
 "")
@@ -316,15 +318,17 @@ class MusicPlayerUi(object):
         self.addPlayListButton.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.addPlayListButton.setStyleSheet(u"QPushButton\n"
 "{\n"
-"	color: rgba(200, 200, 200, 240);\n"
-"	border-style: insert;\n"
-"	background-color: rgba(35, 45, 70, 0);\n"
+"    color: rgba(200, 200, 200, 240);	\n"
+"    border-style: insert;\n"
+"    border-radius: 10px;\n"
+"    background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
+"	border-radius: 10px;\n"
 "  	background-color: rgba(140, 140, 140, 70);\n"
 "}\n"
 "")
@@ -335,14 +339,11 @@ class MusicPlayerUi(object):
 "border-radius: 10px;")
         self.currentSongFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.currentSongFrame.setFrameShadow(QFrame.Shadow.Raised)
-        self.songAPICFrame = QFrame(self.currentSongFrame)
-        self.songAPICFrame.setObjectName(u"songAPICFrame")
-        self.songAPICFrame.setGeometry(QRect(22, 12, 320, 300))
-        self.songAPICFrame.setStyleSheet(u"border-radius: 15px;\n"
-"border-style: solid;\n"
-"border-color: rgb(50, 58, 69);")
-        self.songAPICFrame.setFrameShape(QFrame.Shape.StyledPanel)
-        self.songAPICFrame.setFrameShadow(QFrame.Shadow.Raised)
+        self.songAPICLabel = QLabel(self.currentSongFrame)
+        self.songAPICLabel.setObjectName(u"songAPICLabel")
+        self.songAPICLabel.setGeometry(QRect(10, 10, 321, 291))
+        self.songAPICLabel.setAutoFillBackground(False)
+        self.songAPICLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.controllerFrame = QFrame(self.currentSongFrame)
         self.controllerFrame.setObjectName(u"controllerFrame")
         self.controllerFrame.setGeometry(QRect(76, 429, 242, 49))
@@ -364,7 +365,13 @@ class MusicPlayerUi(object):
 "	background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
-"QPushButton:hover:!pressed\n"
+"QPushButton:hover\n"
+"{\n"
+"	color: rgba(255, 255, 255, 200);\n"
+"	border: insert lightgray;\n"
+"  	background-color: rgba(140, 140, 140, 70);\n"
+"}\n"
+"QPushButton:checked\n"
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
@@ -375,6 +382,7 @@ class MusicPlayerUi(object):
         icon11.addFile(u":/icons/icons/play-random.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.shuffleButton.setIcon(icon11)
         self.shuffleButton.setCheckable(True)
+        self.shuffleButton.setFlat(True)
         self.previousButton = QPushButton(self.controllerFrame)
         self.previousButton.setObjectName(u"previousButton")
         self.previousButton.setGeometry(QRect(53, 10, 30, 30))
@@ -477,7 +485,13 @@ class MusicPlayerUi(object):
 "	background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
-"QPushButton:hover:!pressed\n"
+"QPushButton:hover\n"
+"{\n"
+"	color: rgba(255, 255, 255, 200);\n"
+"	border: insert lightgray;\n"
+"  	background-color: rgba(140, 140, 140, 70);\n"
+"}\n"                                 
+"QPushButton:checked\n"
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
@@ -488,6 +502,7 @@ class MusicPlayerUi(object):
         icon12.addFile(u":/icons/icons/loop-one.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.loopButton.setIcon(icon12)
         self.loopButton.setCheckable(True)
+        self.loopButton.setFlat(True)
         self.timeLineFrmae = QFrame(self.currentSongFrame)
         self.timeLineFrmae.setObjectName(u"timeLineFrmae")
         self.timeLineFrmae.setGeometry(QRect(0, 370, 391, 41))
@@ -561,16 +576,17 @@ class MusicPlayerUi(object):
 "}\n"
 "")
         self.addToPlayList.setIcon(icon6)
-        self.addToPlayList_2 = QPushButton(self.currentSongFrame)
-        self.addToPlayList_2.setObjectName(u"addToPlayList_2")
-        self.addToPlayList_2.setGeometry(QRect(356, 291, 30, 30))
-        self.addToPlayList_2.setMinimumSize(QSize(30, 30))
-        self.addToPlayList_2.setMaximumSize(QSize(30, 30))
-        self.addToPlayList_2.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.addToPlayList_2.setStyleSheet(u"QPushButton\n"
+        self.volumeDown = QPushButton(self.currentSongFrame)
+        self.volumeDown.setObjectName(u"volumeDown")
+        self.volumeDown.setGeometry(QRect(356, 291, 30, 30))
+        self.volumeDown.setMinimumSize(QSize(30, 30))
+        self.volumeDown.setMaximumSize(QSize(30, 30))
+        self.volumeDown.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.volumeDown.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	color: rgba(200, 200, 200, 240);\n"
 "	border-style: insert;\n"
+"	border-radius: 10px;\n"
 "	background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
@@ -578,22 +594,24 @@ class MusicPlayerUi(object):
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
+"	border-radius: 10px;\n"
 "  	background-color: rgba(140, 140, 140, 100);\n"
 "}\n"
 "")
         icon13 = QIcon()
         icon13.addFile(u":/icons/icons/volume-silent-white-icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.addToPlayList_2.setIcon(icon13)
-        self.addToPlayList_3 = QPushButton(self.currentSongFrame)
-        self.addToPlayList_3.setObjectName(u"addToPlayList_3")
-        self.addToPlayList_3.setGeometry(QRect(355, 6, 30, 30))
-        self.addToPlayList_3.setMinimumSize(QSize(30, 30))
-        self.addToPlayList_3.setMaximumSize(QSize(30, 30))
-        self.addToPlayList_3.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.addToPlayList_3.setStyleSheet(u"QPushButton\n"
+        self.volumeDown.setIcon(icon13)
+        self.volumeUp = QPushButton(self.currentSongFrame)
+        self.volumeUp.setObjectName(u"volumeUp")
+        self.volumeUp.setGeometry(QRect(355, 6, 30, 30))
+        self.volumeUp.setMinimumSize(QSize(30, 30))
+        self.volumeUp.setMaximumSize(QSize(30, 30))
+        self.volumeUp.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.volumeUp.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	color: rgba(200, 200, 200, 240);\n"
 "	border-style: insert;\n"
+"	border-radius: 10px;\n"
 "	background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
@@ -601,12 +619,13 @@ class MusicPlayerUi(object):
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
+"	border-radius: 10px;\n"
 "  	background-color: rgba(140, 140, 140, 100);\n"
 "}\n"
 "")
         icon14 = QIcon()
         icon14.addFile(u":/icons/icons/volume-medium-white-icon.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
-        self.addToPlayList_3.setIcon(icon14)
+        self.volumeUp.setIcon(icon14)
         self.currentPlayListFrame = QFrame(self.centralwidget)
         self.currentPlayListFrame.setObjectName(u"currentPlayListFrame")
         self.currentPlayListFrame.setGeometry(QRect(670, 69, 321, 511))
@@ -627,35 +646,38 @@ class MusicPlayerUi(object):
 "border-radius: 20px;")
         self.currentPlayListNameFrame.setFrameShape(QFrame.Shape.StyledPanel)
         self.currentPlayListNameFrame.setFrameShadow(QFrame.Shadow.Raised)
-        self.addToFavoriteButton_4 = QPushButton(self.currentPlayListNameFrame)
-        self.addToFavoriteButton_4.setObjectName(u"addToFavoriteButton_4")
-        self.addToFavoriteButton_4.setGeometry(QRect(240, 10, 30, 30))
-        self.addToFavoriteButton_4.setMinimumSize(QSize(30, 30))
-        self.addToFavoriteButton_4.setMaximumSize(QSize(30, 30))
-        self.addToFavoriteButton_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.addToFavoriteButton_4.setStyleSheet(u"QPushButton\n"
+        self.removeFromPlayList = QPushButton(self.currentPlayListNameFrame)
+        self.removeFromPlayList.setObjectName(u"removeFromPlayList")
+        self.removeFromPlayList.setGeometry(QRect(240, 10, 30, 30))
+        self.removeFromPlayList.setMinimumSize(QSize(30, 30))
+        self.removeFromPlayList.setMaximumSize(QSize(30, 30))
+        self.removeFromPlayList.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.removeFromPlayList.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	color: rgba(200, 200, 200, 240);\n"
 "	border-style: insert;\n"
+"	border-radius: 10px;\n"
 "	background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "QPushButton:hover:!pressed\n"
 "{\n"
 "	border: insert lightgray;\n"
+"    border-radius: 10px;\n"
 "  	background-color: rgba(100, 10, 10, 255);\n"
 "}\n"
 "")
-        self.addToFavoriteButton_4.setIcon(icon7)
-        self.addToPlayList_4 = QPushButton(self.currentPlayListNameFrame)
-        self.addToPlayList_4.setObjectName(u"addToPlayList_4")
-        self.addToPlayList_4.setGeometry(QRect(210, 10, 30, 30))
-        self.addToPlayList_4.setMinimumSize(QSize(30, 30))
-        self.addToPlayList_4.setMaximumSize(QSize(30, 30))
-        self.addToPlayList_4.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
-        self.addToPlayList_4.setStyleSheet(u"QPushButton\n"
+        self.removeFromPlayList.setIcon(icon7)
+        self.addSongsFromPath = QPushButton(self.currentPlayListNameFrame)
+        self.addSongsFromPath.setObjectName(u"addSongsFromPath")
+        self.addSongsFromPath.setGeometry(QRect(210, 10, 30, 30))
+        self.addSongsFromPath.setMinimumSize(QSize(30, 30))
+        self.addSongsFromPath.setMaximumSize(QSize(30, 30))
+        self.addSongsFromPath.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.addSongsFromPath.setStyleSheet(u"QPushButton\n"
 "{\n"
 "	color: rgba(200, 200, 200, 240);\n"
 "	border-style: insert;\n"
+"	border-radius: 10px;\n"
 "	background-color: rgba(35, 45, 70, 0);\n"
 "}\n"
 "\n"
@@ -663,10 +685,11 @@ class MusicPlayerUi(object):
 "{\n"
 "	color: rgba(255, 255, 255, 200);\n"
 "	border: insert lightgray;\n"
+"	border-radius: 10px;\n"
 "  	background-color: rgba(140, 140, 140, 100);\n"
 "}\n"
 "")
-        self.addToPlayList_4.setIcon(icon8)
+        self.addSongsFromPath.setIcon(icon8)
         self.currentPlayListNameLabel = QLabel(self.currentPlayListNameFrame)
         self.currentPlayListNameLabel.setObjectName(u"currentPlayListNameLabel")
         self.currentPlayListNameLabel.setGeometry(QRect(50, 10, 111, 31))
@@ -674,35 +697,36 @@ class MusicPlayerUi(object):
         self.currentPlayListNameLabel.setStyleSheet(u"color: white;\n"
 "background-color: rgba(255,255, 255, 0);")
         self.currentPlayListNameLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        self.playListIcon_2 = QLabel(self.currentPlayListNameFrame)
-        self.playListIcon_2.setObjectName(u"playListIcon_2")
-        self.playListIcon_2.setGeometry(QRect(10, 10, 31, 31))
-        self.playListIcon_2.setStyleSheet(u"background-color: rgba(255, 255, 255, 0 );\n"
+        self.currentPlayListIcon = QLabel(self.currentPlayListNameFrame)
+        self.currentPlayListIcon.setObjectName(u"currentPlayListIcon")
+        self.currentPlayListIcon.setGeometry(QRect(10, 10, 31, 31))
+        self.currentPlayListIcon.setStyleSheet(u"background-color: rgba(255, 255, 255, 0 );\n"
 "")
-        self.playListIcon_2.setPixmap(QPixmap(u":/icons/icons/music_list.png"))
-        self.playListIcon_2.setScaledContents(True)
-        self.currentPlayListSongs = QLabel(self.currentPlayList)
-        self.currentPlayListSongs.setObjectName(u"currentPlayListSongs")
-        self.currentPlayListSongs.setGeometry(QRect(10, 60, 290, 31))
-        self.currentPlayListSongs.setFont(font)
-        self.currentPlayListSongs.setStyleSheet(u"color: white;\n"
-"border-radius: 20px;\n"
-"background-color: rgba(100, 100, 100, 50);\n"
-"")
-        self.currentPlayListSongs.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self.currentPlayListIcon.setPixmap(QPixmap(u":/icons/icons/music_list.png"))
+        self.currentPlayListIcon.setScaledContents(True)
         self.listWidget = QListWidget(self.currentPlayList)
         self.listWidget.setObjectName(u"listWidget")
-        self.listWidget.setGeometry(QRect(10, 100, 290, 390))
+        self.listWidget.setGeometry(QRect(6, 60, 300, 433))
         font3 = QFont()
         font3.setPointSize(11)
         self.listWidget.setFont(font3)
         self.listWidget.viewport().setProperty(u"cursor", QCursor(Qt.CursorShape.PointingHandCursor))
-        self.listWidget.setStyleSheet(u"color: rgba(230, 230, 230, 220);\n"
-"padding: 5px;\n"
-"background-color: rgba(100, 100, 100, 70);\n"
-"selection-color: rgba(250, 250, 250, 240);\n"
-"selection-background-color: rgba(140, 140, 140, 70);\n"
-"")
+        self.listWidget.setStyleSheet("""
+        QListWidget {
+            color: rgba(230, 230, 230, 220);
+            background-color: rgba(100, 100, 100, 70);
+        }
+        QListWidget::item {
+            color: rgba(230, 230, 230, 220);
+            padding: 7px;
+        }
+        QListWidget::item:selected {
+            color: rgba(250, 250, 250, 240);
+            border-radius: 10px;
+            background-color: rgba(140, 140, 140, 70);
+        }
+        """
+        )
         self.listWidget.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         self.listWidget.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         MusicPlayer.setCentralWidget(self.centralwidget)
@@ -757,11 +781,11 @@ class MusicPlayerUi(object):
         self.currentSongAlbum.setText(QCoreApplication.translate("MusicPlayer", u"album : ", None))
         self.currentSongYear.setText(QCoreApplication.translate("MusicPlayer", u"year : ", None))
         self.currentSongPath.setText(QCoreApplication.translate("MusicPlayer", u"path : ", None))
-        self.currentSongNameValue.setText(QCoreApplication.translate("MusicPlayer", u"song value", None))
-        self.currentSongSingerValue.setText(QCoreApplication.translate("MusicPlayer", u"singer value", None))
-        self.currentSongAlbumValue.setText(QCoreApplication.translate("MusicPlayer", u"album value", None))
-        self.currentSongYearValue.setText(QCoreApplication.translate("MusicPlayer", u"year value", None))
-        self.currentSongPathValue.setText(QCoreApplication.translate("MusicPlayer", u"path value", None))
+        self.currentSongNameValue.setText(QCoreApplication.translate("MusicPlayer", u"N/A", None))
+        self.currentSongSingerValue.setText(QCoreApplication.translate("MusicPlayer", u"N/A", None))
+        self.currentSongAlbumValue.setText(QCoreApplication.translate("MusicPlayer", u"N/A", None))
+        self.currentSongYearValue.setText(QCoreApplication.translate("MusicPlayer", u"N/A", None))
+        self.currentSongPathValue.setText(QCoreApplication.translate("MusicPlayer", u"N/A", None))
         self.playListIcon.setText("")
         self.playListLabel.setText(QCoreApplication.translate("MusicPlayer", u"PlayLists", None))
         self.globalListButton.setText(QCoreApplication.translate("MusicPlayer", u"Global", None))
@@ -776,11 +800,9 @@ class MusicPlayerUi(object):
         self.songLength.setText(QCoreApplication.translate("MusicPlayer", u"00:00", None))
         self.addToFavoriteButton.setText("")
         self.addToPlayList.setText("")
-        self.addToPlayList_2.setText("")
-        self.addToPlayList_3.setText("")
-        self.addToFavoriteButton_4.setText("")
-        self.addToPlayList_4.setText("")
+        self.volumeDown.setText("")
+        self.volumeUp.setText("")
+        self.removeFromPlayList.setText("")
+        self.addSongsFromPath.setText("")
         self.currentPlayListNameLabel.setText(QCoreApplication.translate("MusicPlayer", u"Song List", None))
-        self.playListIcon_2.setText("")
-        self.currentPlayListSongs.setText(QCoreApplication.translate("MusicPlayer", u"name              |               path", None))
-    
+        self.currentPlayListIcon.setText("")
