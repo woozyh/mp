@@ -216,3 +216,10 @@ flycheck_*.el
 # junks
 *~
 *'#'
+
+# images
+*.png
+*.jpg
+*.jpeg
+
+
