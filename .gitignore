@@ -222,4 +222,6 @@ flycheck_*.el
 *.jpg
 *.jpeg
 
+# ignoring __init__.py
+__init__.py
 
