@@ -1,5 +1,6 @@
 <div align = "justify">
-# mp
+
+## mp
 A simple gui media player based on qt.
 <hr>
 
@@ -9,5 +10,5 @@ To run the program first try ```pip install -r requirements.txt``` then try ```p
 <hr>
 
 ### screenshot
-![screenshot]("./mp-screenshot.png")
+![Alt text](./mp-screenshot.png "mp-screenshot.png")
 </div>
